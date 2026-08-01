@@ -11,7 +11,7 @@ import {
 
 function Branches() {
   return (
-    <section className="relative py-24 bg-zinc-100 overflow-hidden px-5 md:px-10">
+    <section id="contact" className="relative py-24 bg-zinc-100 overflow-hidden px-5 md:px-10">
 
       <div className="absolute top-0 left-0 h-72 w-72 bg-orange-300/20 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 h-72 w-72 bg-blue-300/20 blur-3xl rounded-full"></div>
@@ -87,7 +87,7 @@ function Branches() {
                   <Phone className="text-orange-500 mt-1" size={20} />
 
                   <p className="text-slate-600">
-                    +91 98765 43210
+                    +91 86938 92209
                   </p>
                 </div>
 
@@ -156,7 +156,7 @@ function Branches() {
                   <Phone className="text-blue-500 mt-1" size={20} />
 
                   <p className="text-slate-600">
-                    +91 98765 43211
+                    +91 86938 92209
                   </p>
                 </div>
 

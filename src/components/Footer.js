@@ -7,10 +7,11 @@ import {
   MapPin,
   ChevronRight,
 } from "lucide-react";
+import Image from "next/image";
 
 function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-slate-950 text-white px-5 md:px-10 pt-20 pb-10">
+    <footer id="contact" className="relative overflow-hidden bg-slate-950 text-white px-5 md:px-10 pt-20 pb-10">
 
       <div className="absolute top-0 left-0 h-72 w-72 bg-orange-500/10 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 h-72 w-72 bg-blue-500/10 blur-3xl rounded-full"></div>
@@ -23,9 +24,15 @@ function Footer() {
 
             <div className="flex items-center gap-4">
 
-              <div className="h-14 w-14 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center shadow-lg">
-                <span className="text-2xl font-black">S</span>
-              </div>
+                <div className="">
+                            <Image
+                              src="/logo.png"
+                              alt="Space Academy Logo"
+                              width={155}
+                              height={155}
+                              className="object-contain"
+                            />
+                          </div>
 
               <div>
                 <h2 className="text-2xl font-black">
@@ -70,7 +77,7 @@ function Footer() {
                 "11th & 12th Science",
                 "11th & 12th Commerce",
                 "JEE Preparation",
-                "NEET Preparation",
+                "MHT-CET Preparation",
               ].map((item, index) => (
                 <div
                   key={index}
@@ -103,7 +110,7 @@ function Footer() {
                   </p>
 
                   <p className="text-slate-400 mt-1">
-                    +91 98765 43210
+                    +91 86938 92209
                   </p>
                 </div>
 
@@ -119,7 +126,7 @@ function Footer() {
                   </p>
 
                   <p className="text-slate-400 mt-1">
-                    info@spaceacademy.com
+                    space01academy@gmail.com
                   </p>
                 </div>
 

@@ -1,193 +1,178 @@
 "use client";
 
-import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { getToppers } from "@/app/actions/getToppers";
 
-const topperData = {
-  "10th Std": [
-    {
-      name: "Aarav Patil",
-      marks: "98.7%",
-      desc: "State Board Topper",
-      image: "/8600945.png",
-    },
-    {
-      name: "Riya Sharma",
-      marks: "97.9%",
-      desc: "Excellent Academic Performance",
-      image: "/11268069.png",
-    },
-    {
-      name: "Vedant Joshi",
-      marks: "97.4%",
-      desc: "Top Rank Achiever",
-      image: "/8600945.png",
-    },
-  ],
+export default function Thirdpage() {
+  const [status, setStatus] = useState(false);
+  const [toppers, setToppers] = useState([]);
 
-  "12th Science": [
-    {
-      name: "Sanket More",
-      marks: "96.8%",
-      desc: "PCM Stream Topper",
-      image: "/11268069.png",
-    },
-    {
-      name: "Neha Patil",
-      marks: "95.9%",
-      desc: "PCB Excellence",
-      image: "/8600945.png",
-    },
-    {
-      name: "Aditya Kale",
-      marks: "95.2%",
-      desc: "Outstanding Performance",
-      image: "/1268069.png",
-    },
-  ],
+  useEffect(() => {
+    async function fetchToppers() {
+      const result = await getToppers();
 
-  "JEE / NEET": [
-    {
-      name: "Om Kulkarni",
-      marks: "AIR 245",
-      desc: "JEE Advanced",
-      image: "/8600945.png",
-    },
-    {
-      name: "Tanvi Deshmukh",
-      marks: "AIR 512",
-      desc: "NEET Qualified",
-      image: "/1268069.png",
-    },
-    {
-      name: "Pratik Shinde",
-      marks: "AIR 684",
-      desc: "IIT Selection",
-      image: "/8600945.png",
-    },
-  ],
-};
+      if (result.success) {
+        setToppers(result.data || []);
+      }
+    }
 
-function Thirdpage() {
-  const [activeTab, setActiveTab] = useState("10th Std");
+    fetchToppers();
+  }, [status]);
+
+  if (!toppers.length) return null;
 
   return (
-    <section className="relative py-24 bg-zinc-100 overflow-hidden px-5 md:px-10">
+    <section
+      id="toppers"
+      className="relative overflow-hidden bg-zinc-100 py-16 md:py-24"
+    >
+      
+      <div className="absolute left-0 top-0 h-52 w-52 rounded-full bg-orange-300/20 blur-3xl md:h-80 md:w-80" />
+      <div className="absolute bottom-0 right-0 h-52 w-52 rounded-full bg-blue-300/10 blur-3xl md:h-80 md:w-80" />
 
-      <div className="absolute top-10 left-10 h-72 w-72 bg-orange-300/20 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-0 right-0 h-72 w-72 bg-blue-300/20 blur-3xl rounded-full"></div>
-
-      <div className="max-w-7xl mx-auto">
-
-        <motion.div
-          initial={{ opacity: 0, y: 70 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <p className="text-orange-500 font-semibold tracking-[3px] uppercase text-sm">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5">
+      
+        <div className="mb-10 text-center md:mb-16">
+          <p className="text-xs font-semibold uppercase tracking-[3px] text-orange-500 sm:text-sm">
             Our Toppers
           </p>
 
-          <h2 className="mt-4 text-4xl md:text-5xl font-black text-slate-900">
-            Our Proud Achievers
+          <h2 className="mt-4 text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl">
+            Meet Our Proud Achievers
           </h2>
 
-          <p className="mt-5 text-slate-600 max-w-2xl mx-auto text-lg">
-            Celebrating the success of students who achieved
-            exceptional academic results with dedication and guidance.
+          <p className="mx-auto mt-5 hidden max-w-2xl text-slate-600 md:block">
+            Students who made us proud with their outstanding academic
+            achievements.
           </p>
-        </motion.div>
-
-        <div className="mt-12 flex items-center justify-center flex-wrap gap-4">
-          {Object.keys(topperData).map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`rounded-2xl px-6 py-3 text-sm font-semibold transition-all duration-300 ${
-                activeTab === tab
-                  ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg"
-                  : "bg-white text-slate-700 border border-zinc-200"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
         </div>
 
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="
-            mt-14
-            flex gap-6 overflow-x-auto pb-4
-            lg:grid lg:grid-cols-3 lg:overflow-visible
-            scrollbar-hide
-          "
-        >
-          {topperData[activeTab].map((student, index) => (
+        <div className="relative overflow-hidden">
+         
+          <div className="absolute left-0 top-0 z-20 h-full w-10 bg-gradient-to-r from-zinc-100 to-transparent md:w-40" />
+          <div className="absolute right-0 top-0 z-20 h-full w-10 bg-gradient-to-l from-zinc-100 to-transparent md:w-40" />
+
+       
+          <div className="space-y-4 md:hidden">
+            
             <motion.div
-              key={index}
-              whileHover={{ y: -10 }}
-              className="
-                min-w-[280px]
-                sm:min-w-[320px]
-                lg:min-w-0
-                relative overflow-hidden rounded-[32px]
-                border border-white/50
-                bg-white/80 backdrop-blur-xl
-                shadow-[0_10px_40px_rgba(0,0,0,0.08)]
-                p-5
-              "
+              className="flex w-max gap-4"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                repeat: Infinity,
+                ease: "linear",
+                duration: 25,
+              }}
             >
-
-              <div className="absolute top-0 right-0 h-32 w-32 bg-gradient-to-br from-orange-200/40 to-red-200/40 blur-3xl rounded-full"></div>
-
-              <div className="relative z-20">
-
-                <div className="relative overflow-hidden rounded-[28px]">
-
-                  <Image
-                    src={student.image}
-                    alt={student.name}
-                    width={400}
-                    height={400}
-                    className="h-[320px] w-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-
-                  <div className="absolute top-4 left-4 rounded-2xl bg-white/90 backdrop-blur-xl px-4 py-2 shadow-lg">
-                    <p className="text-lg font-black text-orange-500">
-                      {student.marks}
-                    </p>
-                  </div>
-
-                </div>
-
-                <div className="mt-6">
-
-                  <h3 className="text-2xl font-black text-slate-900">
-                    {student.name}
-                  </h3>
-
-                  <p className="mt-2 text-slate-600">
-                    {student.desc}
-                  </p>
-
-                </div>
-
-              </div>
-
+              {[...toppers, ...toppers].map((student, index) => (
+                <Card
+                  key={`top-${student.id}-${index}`}
+                  student={student}
+                  width="w-[280px]"
+                  image="h-20 w-20"
+                />
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
 
+         
+            <motion.div
+              className="flex w-max gap-4"
+              animate={{ x: ["-50%", "0%"] }}
+              transition={{
+                repeat: Infinity,
+                ease: "linear",
+                duration: 25,
+              }}
+            >
+              {[...toppers, ...toppers].map((student, index) => (
+                <Card
+                  key={`bottom-${student.id}-${index}`}
+                  student={student}
+                  width="w-[280px]"
+                  image="h-20 w-20"
+                />
+              ))}
+            </motion.div>
+          </div>
+
+         
+          <div className="hidden md:block ">
+            <motion.div
+              className="flex w-max gap-8"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                repeat: Infinity,
+                ease: "linear",
+                duration: 35,
+              }}
+            >
+              {[...toppers, ...toppers].map((student, index) => (
+                <Card
+                  key={`desktop-${student.id}-${index}`}
+                  student={student}
+                  width="w-[420px]"
+                  image="h-28 w-28"
+                />
+              ))}
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-export default Thirdpage;
+function Card({
+  student,
+  width,
+  image,
+}) {
+  return (
+    <motion.div
+      whileHover={{
+        y: -10,
+        scale: 1.03,
+      }}
+      transition={{ duration: 0.3 }}
+      className={`relative ${width} flex-shrink-0 overflow-hidden rounded-[30px] border border-orange-100 bg-white `}
+    >
+     
+      <div className="absolute left-0 top-0 h-full w-2 bg-gradient-to-b from-orange-400 to-red-500" />
+
+    
+      <div className="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-orange-200/30 blur-3xl" />
+
+      <div className="relative flex items-center gap-6 p-6">
+       
+        <div className="relative flex-shrink-0">
+          <div className="absolute inset-0 rounded-full bg-orange-300/40 blur-xl" />
+
+          <Image
+            src={student.image_url}
+            alt={student.student_name}
+            width={120}
+            height={120}
+            className={`relative ${image} rounded-full object-cover ring-4 ring-orange-100`}
+          />
+        </div>
+
+       
+        <div className="flex-1">
+          <p className="text-xs font-bold uppercase tracking-[3px] text-orange-500">
+            Std {student.standard}
+          </p>
+
+          <h3 className="mt-2 text-xl font-black text-slate-900 lg:text-2xl">
+            {student.student_name}
+          </h3>
+
+          <div className="mt-5 inline-flex rounded-full bg-gradient-to-r from-orange-500 to-red-500 px-5 py-2 text-lg font-bold text-white">
+            {student.percentage}%
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}

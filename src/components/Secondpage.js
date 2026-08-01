@@ -2,12 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  GraduationCap,
-  BookOpen,
-  Brain,
-  Trophy,
-} from "lucide-react";
+import { GraduationCap, BookOpen, Brain, Trophy } from "lucide-react";
 
 const courses = [
   {
@@ -36,7 +31,7 @@ const courses = [
   },
   {
     icon: Trophy,
-    title: "JEE / NEET",
+    title: "JEE / CET",
     subtitle: "Competitive Exams",
     desc: "Advanced preparation, mock tests and performance tracking.",
     gradient: "from-yellow-400 to-orange-500",
@@ -46,13 +41,11 @@ const courses = [
 
 function Secondpage() {
   return (
-    <section className="relative py-24 px-5 md:px-10 bg-zinc-100 overflow-hidden">
-
+    <section id="courses" className="relative py-24 px-5 md:px-10 bg-zinc-100 overflow-hidden">
       <div className="absolute top-0 left-0 h-72 w-72 bg-orange-300/20 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 h-72 w-72 bg-blue-300/20 blur-3xl rounded-full"></div>
 
       <div className="max-w-7xl mx-auto">
-
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -71,14 +64,13 @@ function Secondpage() {
             </span>
           </h2>
 
-          <p className="mt-5 text-slate-600 max-w-2xl mx-auto text-lg">
-            Personalized academic programs for school students,
-            higher secondary education and competitive exam preparation.
+          <p className="hidden md:block mt-5 text-slate-600 max-w-2xl mx-auto text-lg">
+            Personalized academic programs for school students, higher secondary
+            education and competitive exam preparation.
           </p>
         </motion.div>
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-7">
-
           {courses.map((course, index) => {
             const Icon = course.icon;
 
@@ -97,13 +89,11 @@ function Secondpage() {
                 }}
                 className="group relative overflow-hidden rounded-[32px] border border-white/50 bg-white/70 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-7"
               >
-
                 <div
                   className={`absolute top-0 left-0 h-40 w-40 bg-gradient-to-br ${course.bg} blur-3xl opacity-70`}
                 ></div>
 
                 <div className="relative z-20">
-
                   <div
                     className={`h-16 w-16 rounded-2xl bg-gradient-to-r ${course.gradient} flex items-center justify-center shadow-lg`}
                   >
@@ -124,19 +114,16 @@ function Secondpage() {
                     </p>
                   </div>
 
-                  <button
+                  {/* <button
                     className={`mt-8 rounded-2xl bg-gradient-to-r ${course.gradient} px-5 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 group-hover:scale-105`}
                   >
                     Explore Course
-                  </button>
-
+                  </button> */}
                 </div>
               </motion.div>
             );
           })}
-
         </div>
-
       </div>
     </section>
   );
