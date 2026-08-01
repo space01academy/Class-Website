@@ -102,10 +102,10 @@ export default function ParentAppSection() {
               })}
             </div>
 
-            <button className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 px-8 py-4 font-semibold text-white shadow-xl transition hover:-translate-y-1 hover:scale-105">
+            <a href="https://github.com/space01academy/Parents-App/releases/download/v1.0.0/SpaceAcademy.apk" className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 px-8 py-4 font-semibold text-white shadow-xl transition hover:-translate-y-1 hover:scale-105">
               Download Parent App
               <ArrowRight size={20} />
-            </button>
+            </a>
 
             <p className="mt-4 text-sm text-slate-500">
               Available for Android devices.
