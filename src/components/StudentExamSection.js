@@ -98,7 +98,7 @@ export default function StudentExamSection() {
             </div>
 
             <a
-              href="https://github.com/space01academy/Student-Exam-App/releases/download/v1.0.0/Exam.SpaceAcademy.apk"
+              href="https://github.com/space01academy/Student-Exam-App/releases/download/v1.0.0/Exam.SpaceAcademy.2.apk"
               className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 px-8 py-4 font-semibold text-white shadow-xl transition hover:-translate-y-1 hover:scale-105"
             >
               Explore Exam App
