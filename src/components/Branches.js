@@ -101,10 +101,15 @@ function Branches() {
 
               </div>
 
-              <button className="mt-10 flex items-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 px-6 py-4 text-white font-semibold shadow-xl transition-all duration-300 group-hover:scale-105">
-                View Location
-                <ArrowUpRight size={18} />
-              </button>
+<a
+  href="https://www.google.com/maps/place/19%C2%B011'24.6%22N+72%C2%B056'50.3%22E/@19.1901619,72.9447365,17z/data=!3m1!4b1!4m4!3m3!8m2!3d19.1901619!4d72.9473114?hl=en&entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-10 flex w-fit items-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 px-6 py-4 font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105"
+>
+  View Location
+  <ArrowUpRight size={18} />
+</a>
 
             </div>
 
@@ -170,10 +175,15 @@ function Branches() {
 
               </div>
 
-              <button className="mt-10 flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4 text-white font-semibold shadow-xl transition-all duration-300 group-hover:scale-105">
-                View Location
-                <ArrowUpRight size={18} />
-              </button>
+<a
+  href="https://www.google.com/maps/place/19%C2%B011'24.6%22N+72%C2%B056'50.3%22E/@19.1901619,72.9447365,17z/data=!3m1!4m4!3m3!8m2!3d19.1901619!4d72.9473114?hl=en"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-10 flex w-fit items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4 font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105"
+>
+  View Location
+  <ArrowUpRight size={18} />
+</a>
 
             </div>
 
